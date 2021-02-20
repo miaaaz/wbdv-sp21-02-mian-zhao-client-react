@@ -1,15 +1,8 @@
-function CourseService() {
-  this.createCourse = createCourse;
-  this.findAllCourses = findAllCourses;
-  this.findCourseById = findCourseById;
-  this.updateCourse = updateCourse;
-  this.deleteCourse = deleteCourse;
-  this.url = 'https://wbdv-generic-server.herokuapp.com/api/001029592/courses';
+const COURSES_URL = 'https://wbdv-generic-server.herokuapp.com/api/001029592/courses';
+// const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses";
 
-  var self = this;
-
-  function createCourse(course) {
-    return fetch(self.url, {
+export const createCourse = (course) => {
+    return fetch(COURSES_URL, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -18,16 +11,16 @@ function CourseService() {
     }).then(res => res.json())
   }
 
-  function findAllCourses() {
-    return fetch(self.url).then(res => res.json())
+export const findAllCourses = () => {
+    return fetch(COURSES_URL).then(res => res.json())
   }
 
-  function findCourseById(id) {
-    return fetch(`${self.url}/${id}`).then(res => res.json())
+export const findCourseById = (id) => {
+    return fetch(`${COURSES_URL}/${id}`).then(res => res.json())
   }
 
-  function updateCourse(id, course) {
-    return fetch(`${self.url}/${id}`, {
+export const updateCourse = (id, course) => {
+    return fetch(`${COURSES_URL}/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
@@ -36,8 +29,18 @@ function CourseService() {
     }).then(res => res.json())
   }
 
-  function deleteCourse(id) {
-    return fetch(`${self.url}/${id}`,
+export const deleteCourse = (id) => {
+    return fetch(`${COURSES_URL}/${id}`,
         {method: 'DELETE'})
   }
+
+
+
+const api = {
+  findAllCourses,
+  deleteCourse,
+  createCourse,
+  updateCourse
 }
+
+export default api;

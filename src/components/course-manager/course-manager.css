@@ -22,12 +22,12 @@ h1 {
 
 a:link {
   text-decoration: none;
-  color: grey;
+  color: #4f4f4f;
 }
 
 a:visited {
   text-decoration: none;
-  color: grey;
+  color: #4f4f4f;
 }
 
 a:hover {

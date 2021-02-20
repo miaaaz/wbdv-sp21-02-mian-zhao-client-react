@@ -1,6 +1,7 @@
 import React from 'react';
 import CourseRow from "../course-row";
 import './course-table.css'
+import {Link} from "react-router-dom";
 
 class CourseTable extends React.Component {
   constructor(props) {
@@ -22,7 +23,10 @@ class CourseTable extends React.Component {
                 <td>
                   <i className="fas fa-folder wbdv-icons"></i>
                   <i className="fas fa-sort-alpha-up wbdv-icons"></i>
-                  <i className="fas fa-th fa-sm wbdv-icons"></i>
+                  <Link to="/courses/grid">
+                    <i className="fas fa-th fa-sm wbdv-icons"></i>
+                  </Link>
+
                 </td>
               </tr>
               </thead>
@@ -31,6 +35,9 @@ class CourseTable extends React.Component {
               {this.props.courses.map((course, index) =>
                   <CourseRow
                     key={index}
+                    course={course}
+                    updateCourse={this.props.updateCourse}
+                    deleteCourse={this.props.deleteCourse}
                     owner={course.owner}
                     lastModified={course.lastModified}
                     title={course.title}/>
