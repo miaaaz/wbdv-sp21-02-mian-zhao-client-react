@@ -12,7 +12,8 @@ const CourseRow =
         setEditing(false)
         const newCourse = {
           ...course,
-          title: newTitle
+          title: newTitle,
+          lastModified: new Date().toLocaleDateString()
         }
         updateCourse(newCourse)
       }

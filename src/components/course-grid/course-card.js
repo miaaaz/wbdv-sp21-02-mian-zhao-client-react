@@ -9,7 +9,8 @@ const CourseCard = ({course, updateCourse, deleteCourse}) => {
     setEditing(false)
     const newCourse = {
       ...course,
-      title: newTitle
+      title: newTitle,
+      lastModified: new Date().toLocaleDateString()
     }
     updateCourse(newCourse)
   }
@@ -17,7 +18,7 @@ const CourseCard = ({course, updateCourse, deleteCourse}) => {
   return (
       <div className="col mb-4">
         <div className="card">
-          <img src="https://dummyimage.com/600x400/000/fff.jpg"
+          <img src="https://st2.depositphotos.com/1009634/7235/v/600/depositphotos_72350117-stock-illustration-no-user-profile-picture-hand.jpg"
                className="card-img-top" alt="..."/>
           <div className="card-body">
             {
