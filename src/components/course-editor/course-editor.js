@@ -1,5 +1,5 @@
 import React from 'react'
-import './course-editor.css'
+import './course-editor.style.css'
 
 const CourseEditor = ({history}) =>
   <div>
@@ -10,7 +10,7 @@ const CourseEditor = ({history}) =>
              className="fas fa-arrow-left wbdv-grey-color nav-link wbdv-btn-close"/>
         </div>
         <a className="navbar-brand" href="#">
-          <i className="fas fa-edit"></i>
+          <i className="fas fa-edit"/>
            <span className="ml-2">
              New Course
            </span>

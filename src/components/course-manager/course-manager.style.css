@@ -109,4 +109,13 @@ tbody {
   position: fixed;
   bottom: 12px;
   right: 16px;
+  z-index: 999;
+}
+
+.fa-check {
+  color: green;
+}
+
+.sticky-top {
+  z-index: 9999;
 }

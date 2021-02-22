@@ -1,6 +1,6 @@
 import React from 'react';
-import CourseRow from "../course-row";
-import './course-table.css'
+import CourseRow from "./course-row";
+import './course-table.style.css'
 import {Link} from "react-router-dom";
 
 class CourseTable extends React.Component {

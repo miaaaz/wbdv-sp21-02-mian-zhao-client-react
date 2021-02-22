@@ -1,5 +1,4 @@
-const COURSES_URL = 'https://wbdv-generic-server.herokuapp.com/api/001029592/courses';
-// const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses";
+const COURSES_URL = 'https://wbdv-generic-server.herokuapp.com/api/mianzhao/courses';
 
 export const createCourse = (course) => {
     return fetch(COURSES_URL, {
