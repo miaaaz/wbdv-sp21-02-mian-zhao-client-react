@@ -5,7 +5,7 @@ import {Route} from "react-router-dom";
 import CourseGrid from "../course-grid/course-grid";
 import CourseEditor from "../course-editor/course-editor";
 import CourseService from "../../services/course-service";
-import CourseManagerNavbar from "../course-manager-navbar";
+import CourseManagerNavbar from "./course-manager-navbar";
 
 class CourseManager extends React.Component {
 
