@@ -26,9 +26,9 @@ const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
       </div>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
         {
-          courses.map((course, index) =>
+          courses.map((course) =>
               <CourseCard
-                  key={index}
+                  key={course._id}
                   updateCourse={updateCourse}
                   deleteCourse={deleteCourse}
                   course={course}/>

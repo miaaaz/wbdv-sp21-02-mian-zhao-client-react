@@ -88,7 +88,7 @@ body {
 /*Inactive module item*/
 .wbdv-sidebar-item a:not(.active):link {
   text-decoration: none;
-  color: #FF4D4D;
+  color: #4f4f4f;
 }
 
 /*Active visited sidebar item*/

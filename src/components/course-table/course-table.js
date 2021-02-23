@@ -32,9 +32,9 @@ class CourseTable extends React.Component {
               </thead>
 
               <tbody>
-              {this.props.courses.map((course, index) =>
+              {this.props.courses.map((course) =>
                   <CourseRow
-                    key={index}
+                    key={course._id}
                     course={course}
                     updateCourse={this.props.updateCourse}
                     deleteCourse={this.props.deleteCourse}
