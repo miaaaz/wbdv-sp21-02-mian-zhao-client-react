@@ -39,7 +39,8 @@ const api = {
   findAllCourses,
   deleteCourse,
   createCourse,
-  updateCourse
+  updateCourse,
+  findCourseById
 }
 
 export default api;

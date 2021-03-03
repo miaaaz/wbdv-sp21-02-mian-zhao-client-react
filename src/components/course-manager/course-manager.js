@@ -3,7 +3,6 @@ import './course-manager.style.css'
 import CourseTable from "../course-table/course-table";
 import {Route} from "react-router-dom";
 import CourseGrid from "../course-grid/course-grid";
-import CourseEditor from "../course-editor/course-editor";
 import CourseService from "../../services/course-service";
 import CourseManagerNavbar from "./course-manager-navbar";
 
@@ -83,7 +82,7 @@ class CourseManager extends React.Component {
   render() {
     return (
         <div>
-          <Route path="/courses/table">
+          <Route path="/courses/table" exact={true}>
             <CourseManagerNavbar title={this.state.courseToAdd.title}
                                  addCourse={this.addCourse}
                                  onCourseChange={this.onCourseChange}/>
@@ -93,7 +92,7 @@ class CourseManager extends React.Component {
                 courses={this.state.courses}/>
           </Route>
 
-          <Route path="/courses/grid">
+          <Route path="/courses/grid" exact={true}>
             <CourseManagerNavbar title={this.state.courseToAdd.title}
                                  addCourse={this.addCourse}
                                  onCourseChange={this.onCourseChange}/>

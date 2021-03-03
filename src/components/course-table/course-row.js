@@ -23,9 +23,9 @@ const CourseRow =
             <td>
               {
                 !editing &&
-                <Link to="/editor">
+                <Link to={`/courses/table/edit/${course._id}`}>
                   <i className="far fa-file-alt wbdv-file-icon fa-fw"></i>
-                  <span> {title}</span>
+                  <span> {course.title}</span>
                 </Link>
               }
 
