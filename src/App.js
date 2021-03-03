@@ -13,7 +13,7 @@ function App() {
           <Route path="/courses">
             <CourseManager/>
           </Route>
-          <Route path="/editor" exact={true} render={(props) => <CourseEditor {...props}/>}>
+          <Route path="/editor/:courseId" exact={true} render={(props) => <CourseEditor {...props}/>}>
           </Route>
         </div>
   );
