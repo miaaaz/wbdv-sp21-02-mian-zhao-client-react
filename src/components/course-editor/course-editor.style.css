@@ -134,6 +134,14 @@ body {
   background-color: #FF4D4D;
 }
 
+.nav-pills a {
+  color: white;
+}
+
+.nav-pills .nav-link {
+  line-height: 2;
+}
+
 .nav-link {
   margin-right: 30px;
   padding: 5px 14px;
@@ -188,11 +196,13 @@ body {
 }
 
 /*Navbar in the editor*/
-.wbdv-editor-nav {
-  padding: 25px 25px;
-  font-size: 14px;
-  font-weight: 400;
-}
+/*.wbdv-editor-nav {*/
+/*  padding: 25px 25px;*/
+/*  font-size: 14px;*/
+/*  font-weight: 400;*/
+/*}*/
+
+
 
 /*Main content of the editor*/
 .wbdv-editor-main {

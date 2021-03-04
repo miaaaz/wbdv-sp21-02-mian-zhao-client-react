@@ -20,20 +20,6 @@ h1 {
   font-weight: 500;
 }
 
-a:link {
-  text-decoration: none;
-  color: #4f4f4f;
-}
-
-a:visited {
-  text-decoration: none;
-  color: #4f4f4f;
-}
-
-a:hover {
-  color: #FF4D4D;
-}
-
 .wbdv-nav-plus {
   color: black;
 }

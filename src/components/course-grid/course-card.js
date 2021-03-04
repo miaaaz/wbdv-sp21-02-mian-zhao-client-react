@@ -23,7 +23,10 @@ const CourseCard = ({course, updateCourse, deleteCourse}) => {
           <div className="card-body">
             {
               !editing &&
-              <Link to="/editor" className="card-title">{course.title}</Link>
+              <Link
+                  to={`/courses/grid/edit/${course._id}`}
+                  className="card-title">{course.title}
+              </Link>
             }
 
             {
@@ -35,7 +38,10 @@ const CourseCard = ({course, updateCourse, deleteCourse}) => {
             }
 
             <p className="card-text">Some description</p>
-            <Link to="/editor" className="btn wbdv-button">{course.title}</Link>
+            <Link
+                to={`/courses/grid/edit/${course._id}`}
+                className="btn wbdv-button">{course.title}
+            </Link>
           </div>
           <div className="card-footer">
             <div className="float-right">

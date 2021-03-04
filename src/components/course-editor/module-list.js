@@ -22,11 +22,9 @@ const ModuleList = (
       <nav className="col-md-2 d-md-block wbdv-sidebar-wrapper collapse">
         <div className="wbdv-module-nav">
           <ul className="wbdv-sidebar">
-            {courseId}
-            {moduleId}
             {
               modules.map(module =>
-                  <li className="wbdv-sidebar-item d-flex justify-content-between align-items-center">
+                  <li key={module._id} className="wbdv-sidebar-item d-flex justify-content-between align-items-center">
                     {/*<a className="" href="#">*/}
                     {/*  {module.title}*/}
                     {/*</a>*/}
@@ -34,6 +32,7 @@ const ModuleList = (
                         to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                         updateItem={updateModule}
                         item={module}
+                        isActive={"active"}
                         deleteItem={deleteModule}
                     />
                   </li>
@@ -48,6 +47,7 @@ const ModuleList = (
             </button>
           </div>
         </div>
+
 
       </nav>
   )

@@ -20,17 +20,17 @@ h1 {
   font-weight: 500;
 }
 
-a:link {
+.wbdv-table-wrapper a:link {
   text-decoration: none;
   color: grey;
 }
 
-a:visited {
+.wbdv-table-wrapper a:visited {
   text-decoration: none;
   color: grey;
 }
 
-a:hover {
+.wbdv-table-wrapper a:hover {
   color: #FF4D4D;
 }
 

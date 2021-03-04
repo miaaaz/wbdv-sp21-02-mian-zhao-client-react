@@ -8,10 +8,13 @@ import ModuleList from "./module-list";
 import LessonTabs from "./lesson-tabs";
 import {useParams} from "react-router-dom";
 import CourseService from "../../services/course-service"
+import topicReducer from "../../reducers/topic-reducer";
+import TopicPills from "./topic-pills";
 
 const reducer = combineReducers({
-  moduleReducer: moduleReducer,
-  lessonReducer: lessonReducer
+  moduleReducer,
+  lessonReducer,
+  topicReducer
 })
 
 const store = createStore(reducer)
@@ -46,29 +49,12 @@ const CourseEditor = ({history, modules}) => {
                    id="navbarSupportedContent">
                 <ul className="navbar-nav mb-2 mb-lg-0 flex-row wbdv-nav-group">
                   <li className="nav-item wbdv-nav-item">
-                    <a className="nav-link active" aria-current="page"
-                       href="#">Build</a>
+                    <a className="nav-link" aria-current="page"
+                       href="/">Home</a>
                   </li>
-                  <li className="nav-item wbdv-nav-item">
-                    <a className="nav-link" href="#">Pages</a>
-                  </li>
-                  <li className="nav-item wbdv-nav-item">
-                    <a className="nav-link" href="#">Theme</a>
-                  </li>
-                  <li className="nav-item wbdv-nav-item">
-                    <a className="nav-link" href="#">Store</a>
-                  </li>
-                  <li className="nav-item wbdv-nav-item">
-                    <a className="nav-link" href="#">Apps</a>
-                  </li>
-                  <li className="nav-item wbdv-nav-item">
-                    <a className="nav-link" href="#">Settings</a>
-                  </li>
+
                 </ul>
-                <form className="d-flex">
-                  <button className="btn wbdv-grey-color" type="submit"><i
-                      className="fas fa-plus"></i></button>
-                </form>
+
               </div>
             </div>
           </nav>
@@ -79,26 +65,28 @@ const CourseEditor = ({history, modules}) => {
 
               <div className="col-10 wbdv-editor-wrapper">
                 <LessonTabs/>
-                <div className="wbdv-editor-nav">
-                  <ul className="nav nav-pills">
-                    <li className="nav-item">
-                      <a className="nav-link active" aria-current="page"
-                         href="#">Topic1</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link " href="#">Topic2</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#">
-                        <i className="fas fa-plus wbdv-add-topic"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                <TopicPills/>
+                {/*<div className="wbdv-editor-nav">*/}
+                {/*  <ul className="nav nav-pills">*/}
+                {/*    <li className="nav-item">*/}
+                {/*      <a className="nav-link active" aria-current="page"*/}
+                {/*         href="#">Topic1</a>*/}
+                {/*    </li>*/}
+                {/*    <li className="nav-item">*/}
+                {/*      <a className="nav-link " href="#">Topic2</a>*/}
+                {/*    </li>*/}
+                {/*    <li className="nav-item">*/}
+                {/*      <a className="nav-link" href="#">*/}
+                {/*        <i className="fas fa-plus wbdv-add-topic"></i>*/}
+                {/*      </a>*/}
+                {/*    </li>*/}
+                {/*  </ul>*/}
+                {/*</div>*/}
                 <br/>
                 <div className="wbdv-editor-main">
                   Content intentionally left blank
                 </div>
+
 
               </div>
             </div>
