@@ -2,3 +2,24 @@
   font-size: 1.25rem;
   font-weight: 500;
 }
+
+.card-body a {
+  color: #4c4c4c;
+  text-decoration: none;
+}
+
+.card-body a:hover {
+  color: black;
+}
+
+.card-body .wbdv-button:hover {
+  color: white;
+}
+
+.wbdv-icons {
+  color: grey;
+}
+
+.wbdv-icons:hover {
+  color: black;
+}

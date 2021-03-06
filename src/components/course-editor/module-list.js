@@ -7,34 +7,37 @@ import moduleService from "../../services/module-service"
 const ModuleList = (
     {
       modules=[],
+      selected,
       createModule,
       updateModule,
       deleteModule,
+      selectModule,
       findModulesForCourse
     }) => {
   const {layout, courseId, moduleId} = useParams()
 
   useEffect(() => {
     findModulesForCourse(courseId)
-  }, [])
+  }, [findModulesForCourse, courseId])
 
   return (
       <nav className="col-md-2 d-md-block wbdv-sidebar-wrapper collapse">
         <div className="wbdv-module-nav">
           <ul className="wbdv-sidebar">
             {
-              modules.map(module =>
-                  <li key={module._id} className="wbdv-sidebar-item d-flex justify-content-between align-items-center">
-                    {/*<a className="" href="#">*/}
-                    {/*  {module.title}*/}
-                    {/*</a>*/}
-                    <EditableItem
-                        to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
-                        updateItem={updateModule}
-                        item={module}
-                        isActive={"active"}
-                        deleteItem={deleteModule}
-                    />
+              modules.map((module, index) =>
+                  <li key={module._id}
+                      className={`${module._id === moduleId ? "active" : ""} wbdv-sidebar-item d-flex justify-content-between align-items-center`}>
+                        <EditableItem
+                            to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
+                            updateItem={updateModule}
+                            item={module}
+                            index={index}
+                            deleteItem={deleteModule}
+                            selectItem={selectModule}
+                            isActive={module._id === moduleId ? "active" : ""}
+                        />
+
                   </li>
               )
             }
@@ -56,7 +59,8 @@ const ModuleList = (
 
 const mapStateToProps = state => {
   return {
-    modules: state.moduleReducer.modules
+    modules: state.moduleReducer.modules,
+    selected: state.moduleReducer.selected
   }
 }
 
@@ -86,7 +90,12 @@ const mapDispatchToProps = (dispatch) => ({
         type: "FIND_MODULES_FOR_COURSE",
         modules: theModules
       }))
-    }
+    },
+    selectModule: (module) =>
+        dispatch({
+          type: "SELECT_MODULE",
+          updatedModule: module
+        })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)

@@ -10,7 +10,8 @@ const LessonTabs = (
       createLesson,
       updateLesson,
       deleteLesson,
-      findLessonsForModule
+      findLessonsForModule,
+      selectLesson
     }) => {
   const {layout, courseId, moduleId, lessonId} = useParams()
 
@@ -19,16 +20,18 @@ const LessonTabs = (
   }, [findLessonsForModule, moduleId])
 
   return (
-      <div className="wbdv-editor-nav">
+      <div className="wbdv-editor-nav wbdv-editor-lessons">
         <ul className="nav nav-tabs">
           {
             lessons.map(lesson =>
-                <li key={lesson._id} className="nav-link">
+                <li key={lesson._id} className="nav-item">
                   <EditableItem
                       to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                       item={lesson}
                       updateItem={updateLesson}
                       deleteItem={deleteLesson}
+                      selectItem={selectLesson}
+                      isActive={lesson._id === lessonId ? "active" : ""}
                   />
                 </li>
             )
@@ -80,7 +83,12 @@ const mapDispatchToProps = dispatch => ({
       type: "FIND_LESSONS_FOR_MODULE",
       lessons: theLessons
     }))
-  }
+  },
+  selectLesson: (lesson) =>
+      dispatch({
+        type: "SELECT_LESSON",
+        updatedLesson: lesson
+      })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)

@@ -1,4 +1,5 @@
 const initialState = {
+  selected: null,
   modules: []
 }
 
@@ -38,6 +39,11 @@ const moduleReducer = (state = initialState, action) => {
       return {
         ...state,
         modules: action.modules
+      }
+    case "SELECT_MODULE":
+      return {
+        ...state,
+        selected: action.updatedModule._id
       }
     default:
       return state

@@ -1,4 +1,5 @@
 const initialState = {
+  selected: null,
   lessons: []
 }
 
@@ -38,6 +39,11 @@ const lessonReducer = (state = initialState, action) => {
       return {
         ...state,
         lessons: action.lessons
+      }
+    case "SELECT_LESSON":
+      return {
+        ...state,
+        selected: action.updatedLesson._id
       }
     default:
       return state

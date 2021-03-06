@@ -15,9 +15,11 @@ function App() {
           </Route>
           <Route path={["/courses/:layout/edit/:courseId",
             "/courses/:layout/edit/:courseId/modules/:moduleId",
-            "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId"
+            "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+            "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"
             ]}
-                 exact={true} render={(props) => <CourseEditor {...props}/>}>
+                 exact={true}>
+            <CourseEditor/>
           </Route>
         </div>
   );

@@ -1,6 +1,5 @@
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
   font-weight: 200;
 }
 
@@ -69,14 +68,26 @@ body {
   border: 1px solid #e0e0e0;
 }
 
-/*Sidebar item*/
-.wbdv-sidebar-item {
-  padding: 13px 30px;
+.wbdv-sidebar-wrapper {
+  padding-left: 0;
+}
+
+.wbdv-sidebar-item .navlink, .active {
+  width: 100%;
+  background-color: #f3f3f3;
+}
+
+.wbdv-sidebar-item .nav-link {
+  padding: 13px 30px
+}
+
+.wbdv-editor-nav .nav-link {
+  display: inline-block;
 }
 
 .wbdv-sidebar-item a:link {
   text-decoration: none;
-  color: #FF4D4D;
+  color: black;
 }
 
 /*Inactive module item*/
@@ -112,39 +123,33 @@ body {
   border-radius: 10px;
 }
 
+
 /*Active sidebar item*/
 .wbdv-sidebar-item.active {
-  background-color: #fff;
+  background-color: #f3f3f3;
 }
 
 /*Inactive topics*/
-.nav-pills .nav-link:not(.active) {
+.nav-pills .nav-link:not(.active) a{
   background-color: white;
-  color: grey;
+  color: #4f4f4f;
+  text-decoration: none;
 }
 
-/*Inactive topics on hover*/
-.nav-pills .nav-link:not(.active):hover {
-  color: #FF4D4D;
-}
 
 /*Active topic*/
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.wbdv-editor-topics .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
   color: #fff;
   background-color: #FF4D4D;
 }
 
-.nav-pills a {
-  color: white;
+.wbdv-editor-topics .nav-pills .nav-link .active {
+  color: #fff;
+  background-color: #FF4D4D;
 }
 
-.nav-pills .nav-link {
-  line-height: 2;
-}
+.wbdv-editor-topics .nav-pills .nav-link {
 
-.nav-link {
-  margin-right: 30px;
-  padding: 5px 14px;
 }
 
 /*Close buttons*/
@@ -158,7 +163,7 @@ body {
 }
 
 .wbdv-module-delete-icon {
-  margin: 5px;
+  margin: 10px 0 10px 3px;
 }
 
 .wbdv-module-nav {
@@ -195,27 +200,70 @@ body {
 .wbdv-editor-wrapper {
 }
 
-/*Navbar in the editor*/
-/*.wbdv-editor-nav {*/
-/*  padding: 25px 25px;*/
-/*  font-size: 14px;*/
-/*  font-weight: 400;*/
-/*}*/
+.wbdv-grey-color {
+  color: grey;
+}
 
+.wbdv-editor-nav .nav-tabs a{
+  color: #4f4f4f;
+  text-decoration: none;
+  background-color: white;
+}
 
+.wbdv-editor-nav .nav-tabs .active a{
+  color: #4f4f4f;
+}
+
+.wbdv-editor-nav .nav-tabs a{
+  color: #FF4D4D;
+}
+
+.wbdv-editor-nav .nav-tabs {
+  color: #FF4D4D;
+}
 
 /*Main content of the editor*/
 .wbdv-editor-main {
   padding: 0 25px;
 }
 
-/*Custom color*/
-.wbdv-grey-color {
-  color: grey;
-}
-
 .wbdv-nav-group {
   margin-left: auto
 }
 
+.wbdv-editor-lessons {
+  padding-top: 25px;
+  padding-bottom: 10px;
 
+}
+
+
+.wbdv-label {
+  display: inline-block;
+}
+
+.fa-edit {
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.fas:hover {
+  cursor: pointer;
+}
+
+.form-control {
+  width: 70%;
+  font-size: 13px;
+  line-height: 1.5;
+  display: inline-block;
+  padding: 5px;
+}
+
+.fa-check {
+  margin: 10px 5px;
+  white-space: nowrap;
+}
+
+.wbdv-sidebar-item .nav-link {
+  width: 100%;
+}

@@ -1,4 +1,5 @@
 const initialState = {
+  selected: null,
   topics: []
 }
 
@@ -38,6 +39,11 @@ const topicReducer = (state = initialState, action) => {
       return {
         ...state,
         topics: action.topics
+      }
+    case "SELECT_TOPIC":
+      return {
+        ...state,
+        selected: action.updatedTopic._id
       }
     default:
       return state

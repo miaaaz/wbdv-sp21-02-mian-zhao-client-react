@@ -10,7 +10,9 @@ const TopicPills = (
       createTopic,
       updateTopic,
       findTopicsForLesson,
-      deleteTopic
+      deleteTopic,
+      selectTopic,
+      selected
     }) => {
   const {layout, courseId, moduleId, lessonId, topicId} = useParams()
 
@@ -19,16 +21,20 @@ const TopicPills = (
   }, [findTopicsForLesson, lessonId])
 
   return (
-        <div className="wbdv-editor-nav">
+        <div className="wbdv-editor-nav wbdv-editor-topics">
           <ul className="nav nav-pills">
             {
               topics.map(topic =>
-                  <li key={topic._id} className="nav-link active">
+                  <li key={topic._id}
+                      className="nav-link">
                     <EditableItem
                         to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
                         updateItem={updateTopic}
                         item={topic}
                         deleteItem={deleteTopic}
+                        selectItem={selectTopic}
+                        selected={selected}
+                        isActive={topic._id === topicId ? "active" : ""}
                     />
                   </li>
               )
@@ -77,7 +83,12 @@ const mapDispatchToProps = (dispatch) => ({
       type: "FIND_TOPICS_FOR_LESSON",
       topics: theTopics
     }))
-  }
+  },
+  selectTopic: (topic) =>
+      dispatch({
+        type: "SELECT_TOPIC",
+        updatedTopic: topic
+      })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)
