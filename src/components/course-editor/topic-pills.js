@@ -11,14 +11,18 @@ const TopicPills = (
       updateTopic,
       findTopicsForLesson,
       deleteTopic,
-      selectTopic,
-      selected
+      cleanTopic
     }) => {
   const {layout, courseId, moduleId, lessonId, topicId} = useParams()
 
   useEffect(() => {
-    findTopicsForLesson(lessonId)
-  }, [findTopicsForLesson, lessonId])
+    if (typeof lessonId !== "undefined") {
+      findTopicsForLesson(lessonId)
+    } else {
+      cleanTopic()
+    }
+
+  }, [findTopicsForLesson, cleanTopic, lessonId])
 
   return (
         <div className="wbdv-editor-nav wbdv-editor-topics">
@@ -32,8 +36,6 @@ const TopicPills = (
                         updateItem={updateTopic}
                         item={topic}
                         deleteItem={deleteTopic}
-                        selectItem={selectTopic}
-                        selected={selected}
                         isActive={topic._id === topicId ? "active" : ""}
                     />
                   </li>
@@ -59,11 +61,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
   createTopic: (lessonId) => {
-    TopicService.createTopic(lessonId, {title: "New Topic"})
-    .then(theActualTopic => dispatch({
-      type: "CREATE_TOPIC",
-      topic: theActualTopic
-    }))
+    if (lessonId !== undefined) {
+      TopicService.createTopic(lessonId, {title: "New Topic"})
+      .then(theActualTopic => dispatch({
+        type: "CREATE_TOPIC",
+        topic: theActualTopic
+      }))
+    } else {
+      alert("Please select a lesson first")
+    }
   },
   updateTopic: (topic) =>
       TopicService.updateTopic(topic._id, topic)
@@ -84,10 +90,9 @@ const mapDispatchToProps = (dispatch) => ({
       topics: theTopics
     }))
   },
-  selectTopic: (topic) =>
+  cleanTopic: () =>
       dispatch({
-        type: "SELECT_TOPIC",
-        updatedTopic: topic
+        type: "CLEAN_TOPIC",
       })
 })
 

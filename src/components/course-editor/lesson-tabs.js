@@ -11,13 +11,19 @@ const LessonTabs = (
       updateLesson,
       deleteLesson,
       findLessonsForModule,
-      selectLesson
+      cleanLessons
     }) => {
   const {layout, courseId, moduleId, lessonId} = useParams()
 
+
   useEffect(() => {
-    findLessonsForModule(moduleId)
-  }, [findLessonsForModule, moduleId])
+    if (typeof moduleId !== "undefined") {
+      findLessonsForModule(moduleId)
+    } else {
+      cleanLessons()
+    }
+
+  }, [findLessonsForModule, cleanLessons, moduleId])
 
   return (
       <div className="wbdv-editor-nav wbdv-editor-lessons">
@@ -30,7 +36,6 @@ const LessonTabs = (
                       item={lesson}
                       updateItem={updateLesson}
                       deleteItem={deleteLesson}
-                      selectItem={selectLesson}
                       isActive={lesson._id === lessonId ? "active" : ""}
                   />
                 </li>
@@ -59,11 +64,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   createLesson: (moduleId) => {
-    LessonService.createLesson(moduleId, {title: "New Lesson"})
-    .then(theActualLesson => dispatch({
-      type: "CREATE_LESSON",
-      lesson: theActualLesson
-    }))
+    if (moduleId !== undefined) {
+      LessonService.createLesson(moduleId, {title: "New Lesson"})
+      .then(theActualLesson => dispatch({
+        type: "CREATE_LESSON",
+        lesson: theActualLesson
+      }))
+    } else {
+      alert("Please select a module first")
+    }
   },
   updateLesson: (lesson) =>
       LessonService.updateLesson(lesson._id, lesson)
@@ -84,10 +93,9 @@ const mapDispatchToProps = dispatch => ({
       lessons: theLessons
     }))
   },
-  selectLesson: (lesson) =>
+  cleanLessons: () =>
       dispatch({
-        type: "SELECT_LESSON",
-        updatedLesson: lesson
+        type: "CLEAN_LESSON"
       })
 })
 

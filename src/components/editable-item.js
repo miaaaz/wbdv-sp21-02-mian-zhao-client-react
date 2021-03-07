@@ -5,7 +5,6 @@ const EditableItem = (
     {
       to,
       item,
-      selectItem,
       updateItem,
       deleteItem,
       isActive
@@ -18,9 +17,7 @@ const EditableItem = (
         { !editing &&
           <>
             <div className={`nav-link ${isActive}`}>
-              <Link onClick={() => {
-                selectItem(item)
-              }} className={`${isActive}`} to={to}>
+              <Link className={`${isActive}`} to={to}>
                 {item.title}
               </Link>
 
@@ -31,7 +28,7 @@ const EditableItem = (
         }
         { editing &&
           <>
-            <div className="nav-link active">
+            <div className="wbdv-editing nav-link active">
               <input className="form-control"
                      onChange={(e) => setItemCache({...itemCache, title: e.target.value})}
                      value={itemCache.title}/>

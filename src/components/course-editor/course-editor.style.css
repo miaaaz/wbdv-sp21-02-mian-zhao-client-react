@@ -3,6 +3,11 @@ body {
   font-weight: 200;
 }
 
+.btn:focus {
+  outline:none !important;
+  box-shadow: none;
+}
+
 /*Top navbar*/
 .navbar {
   background-color: white;
@@ -90,6 +95,11 @@ body {
   color: black;
 }
 
+.wbdv-sidebar-item .active a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 /*Inactive module item*/
 .wbdv-sidebar-item a:not(.active):visited {
   text-decoration: none;
@@ -127,6 +137,7 @@ body {
 /*Active sidebar item*/
 .wbdv-sidebar-item.active {
   background-color: #f3f3f3;
+  color: black;
 }
 
 /*Inactive topics*/
@@ -257,6 +268,7 @@ body {
   line-height: 1.5;
   display: inline-block;
   padding: 5px;
+  height: 30px;
 }
 
 .fa-check {

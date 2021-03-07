@@ -7,11 +7,9 @@ import moduleService from "../../services/module-service"
 const ModuleList = (
     {
       modules=[],
-      selected,
       createModule,
       updateModule,
       deleteModule,
-      selectModule,
       findModulesForCourse
     }) => {
   const {layout, courseId, moduleId} = useParams()
@@ -34,7 +32,6 @@ const ModuleList = (
                             item={module}
                             index={index}
                             deleteItem={deleteModule}
-                            selectItem={selectModule}
                             isActive={module._id === moduleId ? "active" : ""}
                         />
 
@@ -91,11 +88,6 @@ const mapDispatchToProps = (dispatch) => ({
         modules: theModules
       }))
     },
-    selectModule: (module) =>
-        dispatch({
-          type: "SELECT_MODULE",
-          updatedModule: module
-        })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)
