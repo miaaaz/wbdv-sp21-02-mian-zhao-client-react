@@ -37,7 +37,7 @@ const EditingMode = ({widget, updateWidget, deleteWidget, setEditing}) => {
               <>
                 <input onChange={(e) => setWidgetCache(widgetCache => ({...widgetCache, text: e.target.value}))} value={widgetCache.text} className="form-control mb-3"/>
 
-                <select onChange={(e) => setWidgetCache(widgetCache => ({...widgetCache, size: parseInt(e.target.value)}))} value={widget.size} className="form-control">
+                <select onChange={(e) => setWidgetCache(widgetCache => ({...widgetCache, size: parseInt(e.target.value)}))} value={widgetCache.size} className="form-control">
                   <option value={1}>Heading 1</option>
                   <option value={2}>Heading 2</option>
                   <option value={3}>Heading 3</option>
