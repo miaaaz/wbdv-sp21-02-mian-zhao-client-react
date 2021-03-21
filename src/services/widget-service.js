@@ -1,4 +1,4 @@
-const LOCAL_HOST = "http://localhost:8080/api"
+const LOCAL_HOST = process.env.REACT_APP_WIDGET_URL
 
 export const createWidget = (tid, widget) =>
     fetch(`${LOCAL_HOST}/topics/${tid}/widgets`, {

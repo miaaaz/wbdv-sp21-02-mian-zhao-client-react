@@ -21,8 +21,15 @@ const WidgetList = ({
 
   return(
       <div className={"wbdv-widget-list mt-2"}>
-        <i onClick={() => createWidget(topicId)} className="fas fa-plus fa-2x float-right"/>
+
+
         <ul className="list-group">
+          <li>
+            <button onClick={() => createWidget(topicId)} className="btn float-right">
+              <i className={"fas fa-plus "}/>
+            </button>
+
+          </li>
           {
             widgets.map(widget =>
                 <li className="list-group-item" key={widget.id}>

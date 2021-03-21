@@ -22,10 +22,11 @@ const ParagraphWidget = ({widget, updateWidget, deleteWidget}) => {
         {
           !editing &&
           <p>
-            {widget.text}
             <i
                 onClick={() => setEditing(true)}
                 className="fas fa-cog float-right"/>
+            {widget.text}
+
           </p>
         }
       </>

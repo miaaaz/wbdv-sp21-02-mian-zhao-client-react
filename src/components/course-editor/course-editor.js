@@ -36,10 +36,6 @@ const CourseEditor = () => {
                 <LessonTabs/>
                 <TopicPills/>
                 <WidgetList/>
-                {/*<br/>*/}
-                {/*<div className="wbdv-editor-main">*/}
-                {/*  Content intentionally left blank*/}
-                {/*</div>*/}
 
 
               </div>
