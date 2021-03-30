@@ -5,15 +5,6 @@ const EditingMode = ({widget, updateWidget, deleteWidget, setEditing}) => {
 
   return (
     <>
-      <select value={widgetCache.type} onChange={(e) => {
-        setWidgetCache(widgetCache => ({...widgetCache, type: e.target.value}))}
-      }
-
-              className="form-control mb-3">
-        <option value={"PARAGRAPH"}>Paragraph</option>
-        <option value={"HEADING"}>Heading</option>
-      </select>
-
       <i
           onClick={() => {
             updateWidget(widgetCache.id, widgetCache)
@@ -23,6 +14,17 @@ const EditingMode = ({widget, updateWidget, deleteWidget, setEditing}) => {
       <i
           onClick={() => deleteWidget(widget.id)}
           className="fas fa-trash float-right"/>
+      <select value={widgetCache.type} onChange={(e) => {
+        setWidgetCache(widgetCache => ({...widgetCache, type: e.target.value}))}
+      }
+
+              className="form-control mb-3">
+        <option value={"PARAGRAPH"}>Paragraph</option>
+        <option value={"HEADING"}>Heading</option>
+        <option value={"IMAGE"}>Image</option>
+      </select>
+
+
 
       <>
         {
@@ -47,6 +49,48 @@ const EditingMode = ({widget, updateWidget, deleteWidget, setEditing}) => {
                 </select>
 
               </>
+        }
+        {
+          widgetCache.type === "IMAGE" &&
+          <>
+            <div>
+              <form>
+                <div
+                    className={"wbdv-image-url-input form-group"}>
+                  <label htmlFor="wbdv-image-url">Image
+                    URL</label>
+                  <input value={widgetCache.url || ""}
+                         placeholder={"Image url"}
+                         onChange={(e) => setWidgetCache(
+                             widgetCache => ({...widgetCache, url: e.target.value}))}
+                         className={"form-control"}
+                         id={"wbdv-image-url"}/>
+                </div>
+                <div
+                    className={"wbdv-image-width-input form-group"}>
+                  <label htmlFor="wbdv-image-width">Image
+                    Width</label>
+                  <input value={widgetCache.width || ""}
+                         placeholder={"Image width"}
+                         onChange={(e) => setWidgetCache(
+                             widgetCache => ({...widgetCache, width: e.target.value}))}
+                         className="form-control"
+                         id={"wbdv-image-width"}/>
+                </div>
+                <div
+                    className={"wbdv-image-width-input form-group"}>
+                  <label htmlFor="wbdv-image-height">Image
+                    Height</label>
+                  <input value={widgetCache.height || ""}
+                         placeholder={"Image height"}
+                         onChange={(e) => setWidgetCache(
+                             widgetCache => ({...widgetCache, height: e.target.value}))}
+                         className="form-control"
+                         id={"wbdv-image-height"}/>
+                </div>
+              </form>
+            </div>
+            </>
         }
       </>
 

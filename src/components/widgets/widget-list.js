@@ -4,6 +4,8 @@ import ParagraphWidget from "./paragraph-widget";
 import {useParams} from "react-router-dom";
 import {connect} from "react-redux";
 import widgetActions from "../../actions/widget-actions";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = ({
         widgets = [],
@@ -24,13 +26,14 @@ const WidgetList = ({
 
 
         <ul className="list-group">
-          <li>
+          <li className={ "wbdv-plus-button-list"}>
             <button onClick={() => createWidget(topicId)} className="btn float-right">
               <i className={"fas fa-plus "}/>
             </button>
 
           </li>
           {
+
             widgets.map(widget =>
                 <li className="list-group-item" key={widget.id}>
                   {
@@ -43,6 +46,20 @@ const WidgetList = ({
                   {
                     widget.type === "PARAGRAPH" &&
                     <ParagraphWidget
+                        updateWidget={updateWidget}
+                        deleteWidget={deleteWidget}
+                        widget={widget}/>
+                  }
+                  {
+                    widget.type === "LIST" &&
+                    <ListWidget
+                        updateWidget={updateWidget}
+                        deleteWidget={deleteWidget}
+                        widget={widget}/>
+                  }
+                  {
+                    widget.type === "IMAGE" &&
+                    <ImageWidget
                         updateWidget={updateWidget}
                         deleteWidget={deleteWidget}
                         widget={widget}/>
