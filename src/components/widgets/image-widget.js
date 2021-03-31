@@ -3,7 +3,7 @@ import EditingMode from "./editing-mode";
 
 const ImageWidget = ({widget, updateWidget, deleteWidget}) => {
   const [editing, setEditing] = useState(false)
-  const [widgetCache, setWidgetCache] = useState(widget)
+
 
   return (
       <div>

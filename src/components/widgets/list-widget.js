@@ -1,48 +1,23 @@
 import React, {useState} from 'react'
+import EditingListWidget from "./editing-list-widget";
+import EditingMode from "./editing-mode";
 
 const ListWidget = ({widget, updateWidget, deleteWidget}) => {
 
   const [editing, setEditing] = useState(false)
-  const [widgetCache, setWidgetCache] = useState(widget)
-  const [orderedState, setOrderedState] = useState(widget.ordered)
 
   return (
       <div>
         {
           editing &&
-          <>
-            <i
-                onClick={() => {
-                  updateWidget(widgetCache.id, widgetCache)
-                  setEditing(false)
-                }}
-                className="fas fa-check float-right m-0"/>
-            <i
-                onClick={() => deleteWidget(widget.id)}
-                className="fas fa-trash float-right"/>
-
-            <input
-                id={"wbdv-ordered-checkBox"}
-                onChange={(e) => {
-                  setOrderedState(e.target.checked)
-                  setWidgetCache(
-                      widgetCache => ({...widgetCache, ordered: e.target.checked}))
-                }
-                    }
-                checked={orderedState}
-                type="checkbox"/>
-            <label htmlFor="wbdv-ordered-checkBox" className={"ml-1"}>Ordered</label>
-
-            <p className={"mb-1"}>List items</p>
-            <textarea
-                onChange={(e) => setWidgetCache(
-                    widgetCache => ({...widgetCache, text: e.target.value}))}
-                value={widgetCache.text}
-                rows={10}
-                className="form-control"/>
-
-          </>
+              <EditingMode
+                  widget={widget}
+                  updateWidget={updateWidget}
+                  deleteWidget={deleteWidget}
+                  setEditing={setEditing}
+              />
         }
+
         {
           !editing &&
           <>
@@ -69,7 +44,7 @@ const ListWidget = ({widget, updateWidget, deleteWidget}) => {
                 {
                   widget.text.split("\n").map((item) => {
                     return (
-                        <li>
+                        <li key={item}>
                           {item}
                         </li>
                     )

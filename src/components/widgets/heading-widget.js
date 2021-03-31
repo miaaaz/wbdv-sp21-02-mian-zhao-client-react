@@ -21,7 +21,7 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget}) => {
         {
           !editing &&
           <>
-            <i onClick={() => setEditing(true)} className="fas fa-cog float-right"></i>
+            <i onClick={() => setEditing(true)} className="fas fa-cog float-right"/>
 
             {widget.size === 1 && <h1>{widget.text}</h1>}
             {widget.size === 2 && <h2>{widget.text}</h2>}
