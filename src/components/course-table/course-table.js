@@ -20,6 +20,7 @@ class CourseTable extends React.Component {
                 <td>Title</td>
                 <td className="d-none d-sm-table-cell">Owned by</td>
                 <td className="d-none d-lg-table-cell">Last Modified</td>
+                <td></td>
                 <td>
                   <i className="fas fa-folder wbdv-icons"></i>
                   <i className="fas fa-sort-alpha-up wbdv-icons"></i>
