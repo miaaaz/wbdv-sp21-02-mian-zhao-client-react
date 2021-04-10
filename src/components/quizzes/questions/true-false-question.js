@@ -31,6 +31,7 @@ const TrueFalseQuestion = ({question}) => {
                     `}>
             <input
                 type="radio"
+                disabled={isGraded}
                 onClick={() => setAnswer("true")}
                 name={question._id}/>
             <label className="form-check-label ml-2">
@@ -55,6 +56,7 @@ const TrueFalseQuestion = ({question}) => {
                     `}>
             <input
                 type="radio"
+                disabled={isGraded}
                 onClick={() => setAnswer("false")}
                 name={question._id}/>
             <label className="form-check-label ml-2">

@@ -30,9 +30,11 @@ const MultipleChoiceQuestion = ({question}) => {
                     `list-group-item
                     ${isGraded && question.correct === choice ? "list-group-item-success" : ``}
                     ${isGraded && question.correct !== choice && choice === answer ? "list-group-item-danger" : ``}
+                    
                     `}>
                     <input type="radio"
                            name={question._id}
+                           disabled={isGraded}
                            onClick={() => setAnswer(choice)
                            }
                     />
