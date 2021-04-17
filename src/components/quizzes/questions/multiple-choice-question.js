@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 
-const MultipleChoiceQuestion = ({question}) => {
+const MultipleChoiceQuestion = ({question, isGraded, setQuestionsWithAns}) => {
 
   const [answer, setAnswer] = useState([])
-  const [isGraded, setIsGraded] = useState(false);
 
   return(
       <div>
@@ -35,8 +34,20 @@ const MultipleChoiceQuestion = ({question}) => {
                     <input type="radio"
                            name={question._id}
                            disabled={isGraded}
-                           onClick={() => setAnswer(choice)
-                           }
+                           onClick={() => {
+                             setAnswer(choice)
+                             setQuestionsWithAns((prev) =>
+                               prev.map((q) => {
+                                 if (q._id === question._id) {
+                                   return {...q, answer: choice}
+                                 } else {
+                                   return q
+                                 }
+                               }
+
+                               )
+                             )
+                           }}
                     />
                     <label className="form-check-label ml-2" htmlFor="gridRadios2">
                       {choice}
@@ -62,12 +73,6 @@ const MultipleChoiceQuestion = ({question}) => {
           Your answer: {answer}
         </p>
 
-        <button
-            onClick={() => setIsGraded(true)}
-            type="button"
-            className="btn btn-success mb-4">
-          Grade
-        </button>
 
       </div>
   )

@@ -10,7 +10,7 @@ const QuizzesList = () => {
   useEffect(() => {
     QuizService.findAllQuizzes()
     .then((quizzes) => setQuizzes(quizzes))
-  }, [])
+  }, [courseId])
 
   return (
       <div className={"container"}>
@@ -25,10 +25,17 @@ const QuizzesList = () => {
                         <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
                           {quiz.title}
                         </Link>
+
                         <Link
                             className={"btn btn-primary float-right"}
                             to={`/courses/${courseId}/quizzes/${quiz._id}`}>
                           Start
+                        </Link>
+
+                        <Link
+                            className={"btn btn-success float-right mr-2"}
+                            to={`/courses/${courseId}/quizzes/${quiz._id}/attempts`}>
+                          Show attempts history
                         </Link>
 
                       </li>
@@ -37,6 +44,7 @@ const QuizzesList = () => {
             )
           }
         </ul>
+
 
       </div>
 

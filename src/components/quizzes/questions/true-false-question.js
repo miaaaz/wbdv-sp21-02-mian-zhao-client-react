@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 
-const TrueFalseQuestion = ({question}) => {
+const TrueFalseQuestion = ({question, isGraded, setQuestionsWithAns}) => {
   const [answer, setAnswer] = useState(null)
-  const [isGraded, setIsGraded] = useState(false);
 
   return (
       <div>
@@ -32,7 +31,20 @@ const TrueFalseQuestion = ({question}) => {
             <input
                 type="radio"
                 disabled={isGraded}
-                onClick={() => setAnswer("true")}
+                onClick={() => {
+                  setAnswer("true")
+                  setQuestionsWithAns((prev) =>
+                      prev.map((q) => {
+                            if (q._id === question._id) {
+                              return {...q, answer: "true"}
+                            } else {
+                              return q
+                            }
+                          }
+
+                      )
+                  )
+                }}
                 name={question._id}/>
             <label className="form-check-label ml-2">
               True
@@ -57,7 +69,20 @@ const TrueFalseQuestion = ({question}) => {
             <input
                 type="radio"
                 disabled={isGraded}
-                onClick={() => setAnswer("false")}
+                onClick={() => {
+                  setAnswer("false")
+                  setQuestionsWithAns((prev) =>
+                      prev.map((q) => {
+                            if (q._id === question._id) {
+                              return {...q, answer: "false"}
+                            } else {
+                              return q
+                            }
+                          }
+
+                      )
+                  )
+                }}
                 name={question._id}/>
             <label className="form-check-label ml-2">
               False
@@ -77,13 +102,6 @@ const TrueFalseQuestion = ({question}) => {
         <p className={"mt-3"}>
           Your answer: {answer}
         </p>
-
-        <button
-            onClick={() => setIsGraded(true)}
-            type="button"
-            className="btn btn-success mb-4">
-          Grade
-        </button>
 
 
       </div>
